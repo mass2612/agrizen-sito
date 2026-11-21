@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Agrizen · Collegamento a QdC</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../stile.css">
+<script>
+  // Ritorno dall'accesso a QdC (Image Line). Il codice vale 30 secondi.
+  // Per le prove di sviluppo (state "locale-…") lo si gira subito al programma
+  // di prova sul computer, perché Image Line non accetta ritorni a localhost.
+  ;(function () {
+    var q = new URLSearchParams(location.search)
+    var stato = q.get('state') || ''
+    if (q.get('code') && stato.indexOf('locale-') === 0) {
+      location.replace('http://localhost:8765/qdc' + location.search)
+    }
+  })()
+</script>
+</head>
+<body>
+<main class="largo testo">
+  <h1>Collegamento a QdC</h1>
+  <p>Torna all'app Agrizen per finire il collegamento al tuo Quaderno di Campagna.</p>
+  <p><a href="../">Vai al sito di Agrizen</a></p>
+</main>
+</body>
+</html>
